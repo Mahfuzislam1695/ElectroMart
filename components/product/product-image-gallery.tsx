@@ -41,7 +41,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           <Button
             size="sm"
             variant="secondary"
-            className="w-10 h-10 p-0 rounded-full bg-white/90 hover:bg-white"
+            className="w-10 h-10 p-0 rounded-full bg-primary/90 hover:bg-white text-white hover:text-primary"
             onClick={handleZoom}
           >
             <ZoomIn className="w-4 h-4" />
@@ -49,7 +49,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           <Button
             size="sm"
             variant="secondary"
-            className="w-10 h-10 p-0 rounded-full bg-white/90 hover:bg-white"
+            className="w-10 h-10 p-0 rounded-full bg-primary/90 hover:bg-white text-white hover:text-primary"
             onClick={handleRotate}
           >
             <RotateCcw className="w-4 h-4" />
@@ -68,9 +68,8 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           <button
             key={index}
             onClick={() => setSelectedImage(index)}
-            className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-              selectedImage === index ? "border-blue-500 ring-2 ring-blue-200" : "border-gray-200 hover:border-gray-300"
-            }`}
+            className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${selectedImage === index ? "border-blue-500 ring-2 ring-blue-200" : "border-gray-200 hover:border-gray-300"
+              }`}
           >
             <Image
               src={image || "/placeholder.svg"}
