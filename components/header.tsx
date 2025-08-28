@@ -80,7 +80,7 @@ export function Header() {
               </button>
               {isCategoriesOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-64 glass-card rounded-lg shadow-lg p-4 grid grid-cols-1 gap-2"
+                  className="absolute top-full left-0 -mt-1 w-64 glass-card rounded-lg shadow-lg p-4 grid grid-cols-1 gap-2"
                   onMouseEnter={() => setIsCategoriesOpen(true)}
                   onMouseLeave={() => setIsCategoriesOpen(false)}
                 >

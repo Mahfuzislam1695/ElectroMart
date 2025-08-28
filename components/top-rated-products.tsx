@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, Heart } from "lucide-react"
+import Link from "next/link"
 
 const products = [
   {
@@ -59,37 +60,41 @@ export function TopRatedProducts() {
           {products.map((product) => (
             <Card key={product.id} className="glass-card hover:shadow-lg transition-all duration-300 group">
               <CardContent className="p-0">
-                <div className="relative">
-                  <img
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <Badge
-                    className="absolute top-2 left-2"
-                    variant={product.badge === "Best Seller" ? "destructive" : "secondary"}
-                  >
-                    {product.badge}
-                  </Badge>
-                  <Button size="icon" variant="ghost" className="absolute top-2 right-2 bg-white/80 hover:bg-white">
-                    <Heart className="h-4 w-4" />
-                  </Button>
-                </div>
-
-                <div className="p-4">
-                  <h3 className="font-semibold mb-2 text-sm line-clamp-2">{product.name}</h3>
-
-                  <div className="flex items-center gap-1 mb-2">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-medium">{product.rating}</span>
-                    <span className="text-xs text-muted-foreground">({product.reviews} reviews)</span>
+                <Link href={`/product/${product.id}`} className="block cursor-pointer">
+                  <div className="relative">
+                    <img
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    <Badge
+                      className="absolute top-2 left-2"
+                      variant={product.badge === "Best Seller" ? "destructive" : "secondary"}
+                    >
+                      {product.badge}
+                    </Badge>
+                    <Button size="icon" variant="ghost" className="absolute top-2 right-2 bg-white/80 hover:bg-white">
+                      <Heart className="h-4 w-4" />
+                    </Button>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-lg font-bold text-primary">৳{product.price}</span>
-                    <span className="text-sm text-muted-foreground line-through">৳{product.originalPrice}</span>
-                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2 text-sm line-clamp-2">{product.name}</h3>
 
+                    <div className="flex items-center gap-1 mb-2">
+                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <span className="text-sm font-medium">{product.rating}</span>
+                      <span className="text-xs text-muted-foreground">({product.reviews} reviews)</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="text-lg font-bold text-primary">৳{product.price}</span>
+                      <span className="text-sm text-muted-foreground line-through">৳{product.originalPrice}</span>
+                    </div>
+                  </div>
+                </Link>
+
+                <div className="p-4 pt-0">
                   <Button className="w-full" size="sm">
                     Add to Cart
                   </Button>
