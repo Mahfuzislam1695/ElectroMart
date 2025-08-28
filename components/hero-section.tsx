@@ -48,7 +48,7 @@ export function HeroSection() {
               <Badge
                 key={category}
                 variant="secondary"
-                className="px-4 py-2 text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors glass-card"
+                className="px-4 py-2 text-sm cursor-pointer text-primary hover:bg-primary hover:text-primary-foreground transition-colors glass-card"
               >
                 {category}
               </Badge>
